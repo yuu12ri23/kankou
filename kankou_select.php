@@ -16,7 +16,7 @@
         .box {
         
             padding: 25px;
-            border: 5px solid  rgba(187, 250, 221, 0.966);
+            border: 5px solid  rgba(187,250,221,0.966);
         }
     
     </style>
@@ -35,22 +35,28 @@ try {
 
     print '<div class="flex-container">';
     while ($kekka = $re->fetch()) {
-    print "<div class='box'>";
-    print $kekka[0];
-    print " | ";
-    print $kekka[1];
-    print " | ";
-    print $kekka[2];
-    print " | ";
-    print "<img src='{$kekka[3]}' alt='画像の説明文' width='500' height='600'>";
-    
-    print "</div>";
+        print "<div class='box'>";
+        print $kekka[0];
+        print "($kekka[1])";
+        print "<br>";
+        print "<説明>";
+        print "<br>";
+        print $kekka[2];
+        print "<br>";
+        print "<img src='{$kekka[3]}' alt='画像の説明文' width='200' height='250'>";
+        print "</div>";
+        print "<a href='kankou.html'> 口コミ </a>";
     }
     print "</div>";
 
 } catch (PDOException $e) {
     echo 'Connection failed: ' . $e->getMessage();
 }
+
+print "<div class='box'>";
+print "<a href='index.html'>初めに戻る</a>";
+
+print "</div>"
 
 ?>
 
