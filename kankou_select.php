@@ -7,16 +7,16 @@
          body {background-color: rgba(187, 250, 221, 0.966);
         }
         .flex-container {
-            
-            background-color: rgba(187, 250, 221, 0.966); 
-            display: flex; 
-            flex-direction: column; 
+            padding: 25px;
+            border: 5px solid rgb(255, 255, 255);
+            text-align: center;
         }
+            
 
         .box {
         
             padding: 25px;
-            border: 5px solid  rgba(187,250,221,0.966);
+            border: 5px solid  
         }
     
     </style>
@@ -29,7 +29,11 @@ require_once('db_info.php');
 
 try { 
     $dbh = new PDO($dsn);
+    $dbh->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
     
+    $katumoto = $_POST["katumoto"];
+
+    print $katumoto;
     // この下にプログラムを書きましょう。
     $re = $dbh->query("SELECT * FROM kankou_spot;");
 
@@ -45,7 +49,7 @@ try {
         print "<br>";
         print "<img src='{$kekka[3]}' alt='画像の説明文' width='200' height='250'>";
         print "</div>";
-        print "<a href='kankou.html'> 口コミ </a>";
+        print "<a href='kankou_search.php'> 口コミ </a>";
     }
     print "</div>";
 

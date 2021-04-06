@@ -13,6 +13,7 @@ require_once('db_info.php');
 
 try { 
     $dbh = new PDO($dsn);
+    $dbh->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
     
     // この下にプログラムを書きましょう。
 

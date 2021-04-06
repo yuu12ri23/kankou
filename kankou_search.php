@@ -13,11 +13,13 @@ require_once('db_info.php');
 
 try { 
     $dbh = new PDO($dsn);
+    $dbh->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
     
     // この下にプログラムを書きましょう。
     $search = $_POST["search"];  // 入力された検索する文字列
 
     $re = $dbh->query("SELECT * FROM kankou WHERE machi LIKE '%{$search}%';");
+    while ($kekka = $re->fetch()) {
     print "$re<br>";
     print "<div class='box'>";
     print $kekka[0];
@@ -30,7 +32,7 @@ try {
     print "<img src='{$kekka[3]}' alt='画像の説明文' width='200' height='250'>";
     print "</div>";
     }
-    print "</div>";
+    
 
 
 } catch (PDOException $e) {
