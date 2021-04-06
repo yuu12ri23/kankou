@@ -16,7 +16,8 @@
         .box {
         
             padding: 25px;
-            border: 5px solid  
+            border: 5px solid  rgb(255, 255, 255);
+            
         }
     
     </style>
