@@ -33,26 +33,80 @@ try {
     $dbh->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
     
     $katumoto = $_POST["katumoto"];
-
-    print $katumoto;
-    // この下にプログラムを書きましょう。
-    $re = $dbh->query("SELECT * FROM kankou_spot;");
-
-    print '<div class="flex-container">';
-    while ($kekka = $re->fetch()) {
-        print "<div class='box'>";
-        print $kekka[0];
-        print "($kekka[1])";
-        print "<br>";
-        print "<説明>";
-        print "<br>";
-        print $kekka[2];
-        print "<br>";
-        print "<img src='{$kekka[3]}' alt='画像の説明文' width='200' height='250'>";
-        print "</div>";
-        print "<a href='kankou_search.php'> 口コミ </a>";
+    $asibe = $_POST["asibe"];
+    $gounoura = $_POST["gounoura"];
+    $isida = $_POST["isida"];
+    // この下にプログラムを書きましょう
+    
+    if($katumoto){
+        $re=$dbh->query("SELECT * FROM kankou_spot WHERE machi LIKE '勝本町';");
+        while ($kekka = $re->fetch()) {
+            print "<div class='box'>";
+            print $kekka[0];
+            print "($kekka[1])";
+            print "<br>";
+            print "<説明>";
+            print "<br>";
+            print $kekka[2];
+            print "<br>";
+            print "<img src='{$kekka[3]}' alt='画像の説明文' width='200' height='250'>";
+            print "</div>";
+            print "<a href='kankou_search.php'> 口コミ </a>";
+        }
     }
-    print "</div>";
+    
+    if($asibe){
+        $re=$dbh->query("SELECT * FROM kankou_spot WHERE machi LIKE '芦辺町';");
+        while ($kekka = $re->fetch()) {
+            print "<div class='box'>";
+            print $kekka[0];
+            print "($kekka[1])";
+            print "<br>";
+            print "<説明>";
+            print "<br>";
+            print $kekka[2];
+            print "<br>";
+            print "<img src='{$kekka[3]}' alt='画像の説明文' width='200' height='250'>";
+            print "</div>";
+            print "<a href='kankou_search.php'> 口コミ </a>";
+        }
+    }
+    
+    if($gounoura){
+        $re=$dbh->query("SELECT * FROM kankou_spot WHERE machi LIKE '郷ノ浦町';");
+        while ($kekka = $re->fetch()) {
+            print "<div class='box'>";
+            print $kekka[0];
+            print "($kekka[1])";
+            print "<br>";
+            print "<説明>";
+            print "<br>";
+            print $kekka[2];
+            print "<br>";
+            print "<img src='{$kekka[3]}' alt='画像の説明文' width='200' height='250'>";
+            print "</div>";
+            print "<a href='kankou_search.php'> 口コミ </a>";
+        }
+    }
+
+    if($isida){
+        $re=$dbh->query("SELECT * FROM kankou_spot WHERE machi LIKE '石田町';");
+        while ($kekka = $re->fetch()) {
+            print "<div class='box'>";
+                print $kekka[0];
+                print "($kekka[1])";
+                print "<br>";
+                print "<説明>";
+                print "<br>";
+                print $kekka[2];
+                print "<br>";
+                print "<img src='{$kekka[3]}' alt='画像の説明文' width='200' height='250'>";
+            print "</div>";
+                print "<a href='kankou_search.php'> 口コミ </a>";
+        }
+    }
+    
+            print "</div>";
 
 } catch (PDOException $e) {
     echo 'Connection failed: ' . $e->getMessage();
