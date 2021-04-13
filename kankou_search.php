@@ -18,7 +18,7 @@ try {
     // この下にプログラムを書きましょう。
     $search = $_POST["search"];  // 入力された検索する文字列
 
-    $re = $dbh->query("SELECT * FROM kankou WHERE machi LIKE '%{$search}%';");
+    $re = $dbh->query("SELECT * FROM kankou_spot WHERE machi LIKE '%{$search}%';");
     while ($kekka = $re->fetch()) {
     print "$re<br>";
     print "<div class='box'>";
@@ -38,6 +38,7 @@ try {
 } catch (PDOException $e) {
     echo 'Connection failed: ' . $e->getMessage();
 }
+print "<a href='index.html'>初めに戻る</a>";
 
 ?>
 
