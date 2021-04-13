@@ -102,7 +102,11 @@ try {
                 print "<br>";
                 print "<img src='{$kekka[3]}' alt='画像の説明文' width='200' height='250'>";
             print "</div>";
-                print "<a href='kankou_search.php'> 口コミ </a>";
+
+                print "<form method='POST' action='kankou_search.php'>
+                       <input type='submit' value='口コミ'>
+                       </form>
+                      ";
         }
     }
     
